@@ -359,14 +359,33 @@ function progressMetricsState(model) {
   </section>`;
 }
 function progressGoalsState(model) {
-  const league = state.leagueProgress || { league: state.league || 'Bronze', division: state.leagueDivision || 'I', rating: state.leagueRating || 0 };
-  const thresholds = state.config.leagueThresholds || {};
-  const nextRating = Object.values(thresholds).find(value => value > league.rating) || league.rating;
-  return `<div class="progress-live-goals" aria-label="Live progress values">
-    <span class="goal-hands"><strong>Play More</strong><b>${model.hands} / ${model.target} hands</b><small>Unlock earning cycle</small></span>
-    <span class="goal-winnings"><strong>Win More</strong><b>${metricNumber(model.qualifiedWinnings)} ◎</b><small>Increase earning rate</small></span>
-    <span class="goal-league"><strong>Climb Leagues</strong><b>${html(league.league)} ${html(league.division || 'I')}&nbsp;&nbsp; ${metricNumber(league.rating)} / ${metricNumber(nextRating)}</b><small>Unlock higher stakes</small></span>
-  </div>`;
+  return `<section class="progress-live-goals progress-asset-panel" aria-label="Your Progress">
+    <img class="progress-panel-art" src="/assets/your-progress/01_panel_frame.png" alt="" draggable="false">
+    <header class="progress-asset-heading">
+      <img src="/assets/your-progress/11_icon_bars.png" alt="">
+      <div><h2>YOUR PROGRESS</h2><p>Keep playing to grow even faster.</p></div>
+    </header>
+    <div class="progress-asset-rows">
+      <a class="progress-asset-row progress-asset-play" href="#play">
+        <img class="progress-row-art" src="/assets/your-progress/02_row_frame_1.png" alt="">
+        <img class="progress-row-icon" src="/assets/your-progress/play_icon.png" alt="">
+        <span class="progress-row-copy"><strong>Play More</strong><span>View available tables<br>and start winning.</span></span>
+        <img class="progress-row-arrow" src="/assets/your-progress/12_arrow_1.png" alt="">
+      </a>
+      <a class="progress-asset-row progress-asset-win" href="#play">
+        <img class="progress-row-art" src="/assets/your-progress/03_row_frame_2.png" alt="">
+        <img class="progress-row-icon" src="/assets/your-progress/coins_icon.png" alt="">
+        <span class="progress-row-copy"><strong>Win Qualified Pots</strong><span>Increase your Qualified Winnings.</span></span>
+        <img class="progress-row-arrow" src="/assets/your-progress/13_arrow_2.png" alt="">
+      </a>
+      <a class="progress-asset-row progress-asset-league" href="#play">
+        <img class="progress-row-art" src="/assets/your-progress/04_row_frame_3.png" alt="">
+        <img class="progress-row-icon" src="/assets/your-progress/trophy_icon.png" alt="">
+        <span class="progress-row-copy"><strong>Climb Leagues</strong><span>Unlock higher stakes<br>and better rewards.</span></span>
+        <img class="progress-row-arrow" src="/assets/your-progress/14_arrow_3.png" alt="">
+      </a>
+    </div>
+  </section>`;
 }
 function initProgressPhaseOneAnimations() {
   const target = $('[data-rate-count]');
@@ -448,12 +467,13 @@ function earn() {
         <div class="progress-interactions" aria-label="Progress navigation">
           <a class="progress-hitbox hit-how" href="#rules" aria-label="How it works?"></a>
           <a class="progress-hitbox hit-learn" href="#rules" aria-label="Learn more"></a>
-          <a class="progress-hitbox hit-play-more" href="#play" aria-label="Play More"></a>
-          <a class="progress-hitbox hit-win-more" href="#play" aria-label="Win More"></a>
-          <a class="progress-hitbox hit-climb-leagues" href="#play" aria-label="Climb Leagues"></a>
-          <a class="progress-hitbox hit-view-rewards" href="#missions" aria-label="View Rewards"></a>
         </div>
       </div>
+    </div>
+    <div class="home-rewards-footer">
+      <a class="home-rewards-strip" href="#missions" aria-label="View Rewards">
+        <img src="/assets/progress/home-rewards.png" width="962" height="82" alt="Milestones &amp; Rewards — Reach new milestones and get exclusive rewards. View Rewards." draggable="false">
+      </a>
     </div>
   </main>`;
 }
@@ -592,7 +612,6 @@ function render() {
   $('#bottom-nav').innerHTML = r === 'home' ? `
     <a class="active" href="#home" aria-current="page">${icon('home')}<span>Home</span></a>
     <a href="#play">${icon('play')}<span>Tables</span></a>
-    <span class="reserved" aria-disabled="true" aria-label="Progress – für eine zukünftige Seite reserviert">${icon('bolt')}<span>Progress</span><small>Reserviert</small></span>
     <a href="#friends">${icon('users')}<span>Friends</span></a>
     <a href="#missions">${icon('target')}<span>Missions</span></a>
     <a href="#profile">${icon('more')}<span>More</span></a>` : links.map(([id, name, sym]) => `<a href="#${id}" ${activeNav === id ? 'class="active" aria-current="page"' : ''}>${icon(sym)}${name}</a>`).join('');

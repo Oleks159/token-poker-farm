@@ -48,10 +48,11 @@ body {
   max-height: calc(100dvh - (2 * var(--app-shell-gutter)));
 }
 
-/* The approved Progress master is 1024 x 1536 and keeps its exact 2:3 geometry. */
+/* Home retains the master content geometry plus a small Rewards/nav gap. */
 .phone.is-progress-page {
   width: min(var(--app-shell-width), calc(100vw - (2 * var(--app-shell-gutter))));
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 1024 / 1559;
+  background: url('/assets/progress/home-footer-background.png') center / 100% 100% no-repeat;
   height: auto;
   max-height: calc(100dvh - (2 * var(--app-shell-gutter)));
   border-radius: 28px;

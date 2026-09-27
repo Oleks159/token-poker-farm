@@ -1,0 +1,97 @@
+[
+  {
+    "source": "01_panel_frame.png",
+    "sha256": "611e2d24d3440ebf57a68da47adad08de17291e16c933197328dadd2dfd730e7",
+    "crop": [
+      0,
+      0,
+      2510,
+      1696
+    ]
+  },
+  {
+    "source": "02_row_frame_1.png",
+    "sha256": "06aaab57988d33d71fa28f9b40789826f357da05a99eb8eb37ef052fb9177262",
+    "crop": [
+      46,
+      366,
+      2464,
+      814
+    ]
+  },
+  {
+    "source": "03_row_frame_2.png",
+    "sha256": "8cf2115d69e054d417e54e62b3a2bf3c2e0cb84aece22976e45b564fca1d4c3c",
+    "crop": [
+      46,
+      790,
+      2464,
+      1238
+    ]
+  },
+  {
+    "source": "04_row_frame_3.png",
+    "sha256": "0d6ba70d7eb2802c6f2f6531f9688e5944a1897b49e86c0058e3e1311a5e3a9b",
+    "crop": [
+      46,
+      1190,
+      2464,
+      1638
+    ]
+  },
+  {
+    "source": "11_icon_bars.png",
+    "sha256": "2d0fe90e9a6b600586f217737a6c77aa82a95ff67a4df14fef9266ae0e24b76b",
+    "crop": [
+      123,
+      186,
+      237,
+      297
+    ]
+  },
+  {
+    "source": "12_arrow_1.png",
+    "sha256": "1cfa4968a3a619230303cf040ba1f9c1592369c22eaa8b7c43f377abc9473d47",
+    "crop": [
+      2325,
+      557,
+      2369,
+      627
+    ]
+  },
+  {
+    "source": "13_arrow_2.png",
+    "sha256": "2903ff99f42258a62536697bfd2ea034b2cd49ae1c7cd16f94208cefd87de0fd",
+    "crop": [
+      2325,
+      981,
+      2369,
+      1051
+    ]
+  },
+  {
+    "source": "14_arrow_3.png",
+    "sha256": "604d3383068b78f36dd45bdc55c9ffec85f5701a126bdb3ce2c778facbe3a289",
+    "crop": [
+      2325,
+      1381,
+      2369,
+      1451
+    ]
+  },
+  {
+    "source": "play_icon.png",
+    "sha256": "0dfef5d435fc8fe2ac7a10d12bfb179e9bb1fc9e30d3cc0f6c12aae87a98fc1d",
+    "unchanged": true
+  },
+  {
+    "source": "coins_icon.png",
+    "sha256": "2379903b07c893f3941a0a83e9bd0512144a9756ba1047e854d9a045f1c619bc",
+    "unchanged": true
+  },
+  {
+    "source": "trophy_icon.png",
+    "sha256": "7718117a1f0b9feb48a5393c9dbafa3a326a1e2804bf9a000c5fa4139863e660",
+    "unchanged": true
+  }
+]

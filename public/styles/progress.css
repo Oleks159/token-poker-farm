@@ -20,11 +20,12 @@
 }
 
 .is-progress-page #view {
-  position: absolute;
+  position: relative;
   z-index: 1;
   inset: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
+  flex: 1 1 auto;
   min-height: 0;
   overflow-x: hidden;
   overflow-y: auto;
@@ -37,20 +38,31 @@
   position: relative;
   width: 100%;
   height: auto;
-  padding-bottom: calc(12.1cqw + env(safe-area-inset-bottom));
+  padding-bottom: 0;
   overflow: visible;
 }
 
-/* The approved master includes a baked navigation strip in its last 99px.
- * Crop that strip from scrollable page content and render the real application
- * navigation outside #view instead.  The inner canvas keeps the original
- * 1024 x 1536 coordinate system for every approved overlay. */
+/* End before Rewards, which is now a separate rounded link. The baked nav is
+ * never displayed. `clip` also prevents focus from scrolling this crop and
+ * accidentally bringing the baked nav back into view. The inner canvas keeps
+ * the original coordinate system for all existing panels. */
 .progress-master-crop {
   position: relative;
   width: 100%;
-  height: 140.33203125cqw;
-  overflow: hidden;
+  height: 132.32421875cqw;
+  overflow: clip;
 }
+
+.home-rewards-footer {
+  padding: 0 2.9296875cqw 1.4cqw 3.125cqw;
+  background: url('/assets/progress/home-footer-background.png') center / 100% 100% no-repeat;
+}
+.home-rewards-strip {
+  display: block;
+  overflow: hidden;
+  border-radius: 2.5cqw;
+}
+.home-rewards-strip img { display: block; width: 100%; height: auto; }
 
 .progress-master-canvas {
   position: relative;
@@ -577,22 +589,24 @@
 /* The former Progress page is Home.  This is application chrome and therefore
  * a sibling of #view, never a child of the scrolling master page. */
 .is-progress-page #bottom-nav {
-  position: absolute;
+  position: relative;
+  flex: 0 0 auto;
   z-index: 12;
   left: 0;
   right: 0;
   top: auto;
   bottom: 0;
   width: 100%;
-  height: 9.66796875cqw;
+  height: calc(10.4cqw + env(safe-area-inset-bottom));
   min-height: 9.66796875cqw;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   align-items: stretch;
-  padding: 0 1.4cqw;
-  border-radius: 4.2cqw 4.2cqw 0 0;
-  background: linear-gradient(180deg, #092b5df8, #071f4dfd);
-  box-shadow: inset 0 1px #386eb858, 0 -1cqw 2.4cqw #0617394d;
+  padding: 0 1.4cqw env(safe-area-inset-bottom);
+  border: 0;
+  border-radius: 4.2cqw;
+  background: linear-gradient(110deg, #102c50, #071e3c 70%, #082445);
+  box-shadow: inset 0 1px #386eb858;
 }
 .is-progress-page #bottom-nav a,
 .is-progress-page #bottom-nav > span {
@@ -606,11 +620,11 @@
   flex-direction: column;
   gap: .55cqw;
   color: #9fbce8;
-  font-size: 1.2cqw;
+  font-size: 1.9cqw;
   text-decoration: none;
   pointer-events: auto;
 }
-.is-progress-page #bottom-nav svg { width: 3.2cqw; height: 3.2cqw; stroke-width: 1.55; }
+.is-progress-page #bottom-nav svg { width: 4cqw; height: 4cqw; stroke-width: 1.55; }
 .is-progress-page #bottom-nav .active { color: #ffe264; }
 .is-progress-page #bottom-nav .active::before {
   content: '';
